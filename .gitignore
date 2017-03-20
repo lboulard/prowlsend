@@ -1,0 +1,8 @@
+*~
+*.bak
+*.sw[a-z]
+\#*\#
+
+# Executable
+prowlsend
+prowlsend.exe
