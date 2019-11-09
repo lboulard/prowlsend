@@ -5,7 +5,7 @@ Simple tool that permit sending short notification to yourself.
 ## Install
 
 ```shell
-go get gitub.com/lboulard/prowlsend
+go get github.com/lboulard/prowlsend
 ```
 
 You will find a executable in `$GOPATH/bin` named `prowlsend`.
