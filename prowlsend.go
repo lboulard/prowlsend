@@ -142,7 +142,7 @@ func main() {
 
 	switch len(flag.Args()) {
 	case 0:
-		fmt.Fprintln(os.Stderr, "Error: need at least a message as argument\n")
+		fmt.Fprintln(os.Stderr, "Error: need at least a message as argument")
 		os.Exit(1)
 	default:
 		n.Description = strings.Join(flag.Args(), "\n")
@@ -150,8 +150,8 @@ func main() {
 
 	err = p.Push(n)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "Error: failed to send Prowl notification\n")
-		fmt.Fprintln(os.Stderr, "# %v", err)
+		fmt.Fprintln(os.Stderr, "Error: failed to send Prowl notification")
+		fmt.Fprintln(os.Stderr, "# %r", err)
 		os.Exit(1)
 	}
 }
