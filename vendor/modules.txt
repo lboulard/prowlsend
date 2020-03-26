@@ -1,0 +1,6 @@
+# github.com/BurntSushi/toml v0.3.1
+## explicit
+github.com/BurntSushi/toml
+# github.com/rem7/goprowl v0.0.0-20140407183327-54237fc241aa
+## explicit
+github.com/rem7/goprowl
