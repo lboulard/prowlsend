@@ -14,6 +14,8 @@ import (
 	"github.com/rem7/goprowl"
 )
 
+const VERSION = "1.0.0"
+
 var Options struct {
 	Priority    int
 	Event       string
@@ -22,6 +24,8 @@ var Options struct {
 	HostPrefix  bool
 	ConfigFile  string
 }
+
+var printVersion bool
 
 const CONFIG_PATH = "prowl/prowl.toml"
 
@@ -103,6 +107,11 @@ func FindConfigFile(configpath string) (string, error) {
 func main() {
 	flag.Parse()
 
+	if printVersion {
+		fmt.Println(VERSION)
+		os.Exit(0)
+	}
+
 	configpath, err := FindConfigFile(CONFIG_PATH)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
@@ -160,6 +169,7 @@ func usage() {
 	locations := ConfigFileLocations(CONFIG_PATH)
 	fmt.Fprintf(os.Stderr, "Usage: %s [options] \"message\" [...]\n",
 		filepath.Base(os.Args[0]))
+	fmt.Fprintf(os.Stderr, "version %s\n", VERSION)
 	fmt.Fprintf(os.Stderr, "%s", `
 Messages are concatenated with a carriage return character between them.
 `)
@@ -190,5 +200,6 @@ func init() {
 	flag.BoolVar(&Options.HostPrefix, "o", true,
 		"Use \"-o=false\" to not append hostname in application name")
 	flag.StringVar(&Options.ConfigFile, "c", "", "`path` to specific configuration file")
+	flag.BoolVar(&printVersion, "v", false, "print program version")
 	flag.Usage = usage
 }
